@@ -1,32 +1,16 @@
-<?php 
-require_once 'db.php';
-require_once 'models/Auteur.php';
-require_once 'models/Livres.php';
-require_once 'models/Emprunteur.php';
-require_once 'models/Bibliotheque.php';
+<?php
+//Db et Router
+require_once('../core/Router.php');
+require_once('../src/models/Db.php');
+//Les repositories
+require_once('../src/models/repositories/UserRepository.php');
 
-$connect = new Db();
+//Les modèles
+require_once('../src/models/User.php');
+//Les controllers
+require_once('../src/controllers/RegisterController.php');
 
-$bibliotheque = new Bibliotheque();
+$router = new Router();
+$router->start();
 
-$auteur = new Auteur("Hugo", "Victor", 1);
-
-$livre1 = new Livres("Les Misérables", $auteur, 1862);
-$livre2 = new Livres("Notre-Dame de Paris", $auteur, 1831);
-
-$bibliotheque->ajouterLivre($livre1);
-$bibliotheque->ajouterLivre($livre2);
-
-$emprunteur = new Emprunteur("Jean", "Lescroc");
-
-$bibliotheque->ajouterEmprunteur($emprunteur);
-
-if ($emprunteur->emprunterLivre($livre1)) {
-    echo "Livre emprunté : " . $livre1->getTitre() . "<br>";
-} else {
-    echo "Le livre n'est pas disponible.";
-}
-
-foreach ($bibliotheque->listerLivres() as $livre) {
-    echo $livre->afficherInfos();
-}
+?>
