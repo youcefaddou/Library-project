@@ -23,7 +23,7 @@ abstract class UserRepository extends Db {
             $select = $db->prepare("SELECT * FROM user WHERE mail = :mail");
             $select->execute([':mail' => $mail]);
             $user = $select->fetch(PDO::FETCH_ASSOC);
-        
+            return $user;
         } catch (Exception $e) {
             throw new Exception("Erreur lors de la récupération de l'utilisateur : " . $e->getMessage());
         }
