@@ -6,7 +6,7 @@ Plan d'execution:
 
 Controllers:
 
--LoginController.php pour gérer la connexion
+-LoginController.php pour gérer la connexion   
 -LogoutController.php pour gérer la déco
 -RegisterController.php pour le formulaire d'inscription utilisateur
 -MainController.php pour l'affichage des livres, l'ajout, la suppression, modification, ainsi que l'emprunt (avec une colonne qui affiche "Disponible" ou "Indisponible")
