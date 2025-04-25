@@ -16,7 +16,10 @@ body {
     top: 20px;
     right: 20px;
 }
-
+.title-booklist {
+    text-align: center;
+    padding: 10px;;
+}
 .LogoutButton {
     padding: 10px 20px;
     background-color: #f87171;
@@ -41,24 +44,12 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.left-column {
-    flex: 40%;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-}
 
-.right-column {
-    flex: 60%;
-    padding: 20px;
-    background-color: #f8f9fa;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
 .main-container {
     max-width: 100%;
     margin: 0 auto;
+    margin-top: 10vh;
 }
 
 .post-create-container {
@@ -187,123 +178,4 @@ body {
     background-color: #f8f9fa;
     border-radius: 8px;
     margin: 20px 0;
-}
-
-
-.books-container {
-    padding: 20px;
-}
-
-.books-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.add-book-form {
-    display: flex;
-    gap: 10px;
-}
-
-.add-book-form input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.add-book-btn {
-    padding: 8px 16px;
-    background-color: #2bc451;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.books-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.book-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.book-info h3 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.author {
-    color: #666;
-    margin: 0 0 10px 0;
-}
-
-.status {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    margin: 0;
-}
-
-.status.available {
-    background-color: #dcfce7;
-    color: #166534;
-}
-
-.status.unavailable {
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-
-.book-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.borrow-btn, .return-btn, .edit-btn, .delete-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-
-.borrow-btn {
-    background-color: #3b82f6;
-    color: white;
-}
-
-.return-btn {
-    background-color: #f59e0b;
-    color: white;
-}
-
-.edit-btn {
-    background-color: #8b5cf6;
-    color: white;
-}
-
-.delete-btn {
-    background-color: #f87171;
-    color: white;
-}
-
-.edit-form {
-    display: flex;
-    gap: 5px;
-}
-
-.edit-form input {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 0.9em;
 }

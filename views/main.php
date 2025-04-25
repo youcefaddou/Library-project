@@ -13,7 +13,7 @@ $user = $_SESSION['user'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page principale</title>
+    <title>Library App</title>
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
@@ -79,7 +79,7 @@ $user = $_SESSION['user'];
         </div>
     </div>
     <div class="right-column">
-
+            <?php include 'book.php';   ?>                        
     </div>
 </body>
 

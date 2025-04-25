@@ -1,6 +1,7 @@
 <?php
 
 abstract class PostRepository extends Db {
+    
     public static function insertPost($post) {
         $query = "INSERT INTO posts (title, content, user_id) VALUES (:title, :content, :user_id)";
         $statement = self::getInstance()->prepare($query);
