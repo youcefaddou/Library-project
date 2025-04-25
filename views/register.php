@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Union Library</h1>
+    <h1>Library App</h1>
     <nav>
 
         <div class="connect-btn-container">
@@ -25,11 +25,18 @@
             <form action="/" method="post">
                 <input type="text" name="firstName" placeholder="Prénom">
                 <input type="text" name="lastName" placeholder="Nom">
-                <input type="email" name="mail" placeholder="Email">
+                <input type="text" name="mail" placeholder="Email">
                 <input type="password" name="password" placeholder="Mot de passe">
                 <button type="submit" name="register">S'inscrire</button>
+                <?php if (isset($success)) : ?>
+                    <p class="success"><?= $success ?></p>
+                <?php endif; ?>
+                <?php if (isset($err)) : ?>
+                    <p class="error"><?= $err ?></p>
+                <?php endif; ?>
             </form>
         </div>
+        </form>
     </section>
 </body>
 

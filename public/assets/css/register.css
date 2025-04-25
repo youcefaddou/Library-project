@@ -69,3 +69,16 @@ nav {
     justify-content: flex-end;
     margin-top: 20px;
 }
+
+.success-message {
+    color: #22c55e;
+    text-align: center;
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+p {
+    color: #f87171;
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+}
