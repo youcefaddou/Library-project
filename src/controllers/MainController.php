@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../models/repositories/PostRepository.php';
+require_once __DIR__ . '/../models/repositories/BookRepository.php';
 
 class MainController extends Controller {
     public function index() {
@@ -10,9 +11,10 @@ class MainController extends Controller {
         
         try {
             $posts = PostRepository::getAllPosts();
+            $books = BookRepository::getAllBooks();
             include __DIR__ . '/../../views/main.php';
         } catch (Exception $e) {
-            $err = "Erreur lors de la récupération des posts : " . $e->getMessage();
+            $err = "Erreur lors de la récupération des données : " . $e->getMessage();
             include __DIR__ . '/../../views/main.php';
         }
     }

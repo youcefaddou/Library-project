@@ -43,5 +43,28 @@ class BookController extends Controller {
         header("Location: /main");
         exit;
     }
+
+    public function add() {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /login');
+            exit;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $title = $_POST['title'] ?? '';
+            $author = $_POST['author'] ?? '';
+            $year = $_POST['year'] ?? null;
+            $userId = $_SESSION['user_id'];
+
+            try {
+                $book = new Book($title, $author, $year, true, null, $userId);
+                BookRepository::insertBook($book);
+                header('Location: /');
+                exit;
+            } catch (Exception $e) {
+                $error = "Une erreur est survenue lors de l'ajout du livre.";
+            }
+        }
+    }
 }
 ?> 

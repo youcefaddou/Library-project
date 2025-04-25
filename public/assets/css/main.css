@@ -7,65 +7,73 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    display: flex;
     min-height: 100vh;
 }
 
-.logout-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.LogoutButton {
-    padding: 10px 20px;
-    background-color: #f87171;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.LogoutButton:hover {
-    background-color: #ef4444;
+.header {
+    background-color: rgba(255, 228, 181, 0.537);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .site-title {
-    background-color: rgba(255, 228, 181, 0.537);
-    text-align: center;
     color: #333;
-    margin-bottom: 30px;
-    padding: 30px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 1.5em;
 }
 
-.left-column {
-    flex: 40%;
+.logout-form {
+    margin: 0;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #eb3434;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background-color: #791616;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
     padding: 20px;
+    gap: 20px;
+}
+
+.posts-section {
+    flex: 40%;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow-y: auto;
 }
 
-.right-column {
+.library-section {
     flex: 60%;
-    padding: 20px;
     background-color: #f8f9fa;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.main-container {
-    max-width: 100%;
-    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto;
 }
 
 .post-create-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-bottom: 20px;
 }
 
@@ -115,7 +123,7 @@ body {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .post-header {
@@ -137,6 +145,7 @@ body {
 
 .post-content {
     margin-bottom: 15px;
+    word-break: break-word;
 }
 
 .post-actions {
@@ -148,7 +157,7 @@ body {
 .post-edit-btn, .post-delete-btn, .post-confirm-btn {
     padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
 }
@@ -186,124 +195,57 @@ body {
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
-    margin: 20px 0;
 }
 
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 15px;
+    }
 
-.books-container {
-    padding: 20px;
+    .posts-section, .library-section {
+        flex: 100%;
+        width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 1.2em;
+    }
 }
 
-.books-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
 
-.add-book-form {
-    display: flex;
-    gap: 10px;
-}
+    .main-content {
+        padding: 10px;
+    }
 
-.add-book-form input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+    .posts-section, .library-section {
+        padding: 15px;
+    }
 
-.add-book-btn {
-    padding: 8px 16px;
-    background-color: #2bc451;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    .post-form {
+        gap: 10px;
+    }
 
-.books-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
+    .post-title-input, .post-content-textarea {
+        font-size: 14px;
+    }
 
-.book-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+    .post-submit-btn {
+        font-size: 14px;
+    }
 
-.book-info h3 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.author {
-    color: #666;
-    margin: 0 0 10px 0;
-}
-
-.status {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.9em;
-    margin: 0;
-}
-
-.status.available {
-    background-color: #dcfce7;
-    color: #166534;
-}
-
-.status.unavailable {
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-
-.book-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.borrow-btn, .return-btn, .edit-btn, .delete-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-
-.borrow-btn {
-    background-color: #3b82f6;
-    color: white;
-}
-
-.return-btn {
-    background-color: #f59e0b;
-    color: white;
-}
-
-.edit-btn {
-    background-color: #8b5cf6;
-    color: white;
-}
-
-.delete-btn {
-    background-color: #f87171;
-    color: white;
-}
-
-.edit-form {
-    display: flex;
-    gap: 5px;
-}
-
-.edit-form input {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 0.9em;
+    .post-edit-btn, .post-delete-btn, .post-confirm-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }

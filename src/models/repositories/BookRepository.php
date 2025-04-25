@@ -1,15 +1,3 @@
-<!-- CREATE TABLE Books (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    year INT(4) NOT NULL,
-    isAvailable TINYINT NOT NULL DEFAULT 0,
-    user_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NULL DEFAULT NULL,
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
-); -->
-
 <?php
 
 abstract class BookRepository extends Db {
@@ -31,12 +19,14 @@ abstract class BookRepository extends Db {
 
     public static function insertBook(Book $book) {
         $db = self::getInstance();
-        $query = "INSERT INTO books (title, author, isAvailable) VALUES (:title, :author, :isAvailable)";
+        $query = "INSERT INTO books (title, author, year, isAvailable, user_id) VALUES (:title, :author, :year, :isAvailable, :user_id)";
         $statement = $db->prepare($query);
         return $statement->execute([
             ':title' => $book->getTitle(),
             ':author' => $book->getAuthor(),
-            ':isAvailable' => $book->getIsAvailable()
+            ':year' => $book->getYear(),
+            ':isAvailable' => $book->getIsAvailable(),
+            ':user_id' => $book->getUserId()
         ]);
     }
 

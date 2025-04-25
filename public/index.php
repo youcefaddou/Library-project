@@ -15,7 +15,15 @@ require_once('../src/controllers/Controller.php');
 require_once('../src/controllers/MainController.php');
 require_once('../src/controllers/RegisterController.php');
 require_once('../src/controllers/LoginController.php');
+require_once('../src/controllers/LogoutController.php');
 require_once('../src/controllers/PostController.php');
+require_once('../src/controllers/BookController.php');
+require_once('../src/controllers/AddController.php');
+// require_once('../src/controllers/UpdateController.php');
+// require_once('../src/controllers/DeleteController.php');
+
+
+
 
 $router = new Router();
 $router->start();
