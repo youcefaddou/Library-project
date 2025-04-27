@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: rgba(255, 228, 181, 0.537);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.site-title {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.logout-form {
+    margin: 0;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #eb3434;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background-color: #791616;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.posts-section {
+    flex: 40%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.library-section {
+    flex: 60%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.post-create-container {
+    margin-bottom: 20px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-title-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.post-content-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.post-submit-btn {
+    padding: 12px;
+    background-color: #2bc451;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.post-submit-btn:hover {
+    background-color: #22c55e;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.post-author {
+    color: #666;
+}
+
+.post-content {
+    margin-bottom: 15px;
+    word-break: break-word;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.post-edit-btn, .post-delete-btn, .post-confirm-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post-edit-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.post-edit-btn:hover {
+    background-color: #2563eb;
+}
+
+.post-delete-btn {
+    background-color: #f87171;
+    color: white;
+}
+
+.post-delete-btn:hover {
+    background-color: #ef4444;
+}
+
+.post-confirm-btn {
+    background-color: #2bc451;
+    color: white;
+}
+
+.post-confirm-btn:hover {
+    background-color: #22c55e;
+}
+
+.no-posts {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .posts-section, .library-section {
+        flex: 100%;
+        width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .posts-section, .library-section {
+        padding: 15px;
+    }
+
+    .post-form {
+        gap: 10px;
+    }
+
+    .post-title-input, .post-content-textarea {
+        font-size: 14px;
+    }
+
+    .post-submit-btn {
+        font-size: 14px;
+    }
+
+    .post-edit-btn, .post-delete-btn, .post-confirm-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

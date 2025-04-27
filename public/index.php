@@ -1,32 +1,31 @@
-<?php 
-require_once 'db.php';
-require_once 'models/Auteur.php';
-require_once 'models/Livres.php';
-require_once 'models/Emprunteur.php';
-require_once 'models/Bibliotheque.php';
+<?php
 
-$connect = new Db();
+//db et Router
+require_once('../core/Router.php');
+require_once("../src/models/Db.php");
+//les repositories
+require_once("../src/models/repositories/PostRepository.php");
+require_once("../src/models/repositories/UserRepository.php");
+//modeles
+require_once("../src/models/Post.php");
+require_once("../src/models/User.php");
+//le controller abstract
+require_once('../src/controllers/Controller.php');
+//les autres controlleurs
+require_once('../src/controllers/MainController.php');
+require_once('../src/controllers/RegisterController.php');
+require_once('../src/controllers/LoginController.php');
+require_once('../src/controllers/LogoutController.php');
+require_once('../src/controllers/PostController.php');
+require_once('../src/controllers/BookController.php');
+require_once('../src/controllers/AddController.php');
+// require_once('../src/controllers/UpdateController.php');
+// require_once('../src/controllers/DeleteController.php');
 
-$bibliotheque = new Bibliotheque();
 
-$auteur = new Auteur("Hugo", "Victor", 1);
 
-$livre1 = new Livres("Les Misérables", $auteur, 1862);
-$livre2 = new Livres("Notre-Dame de Paris", $auteur, 1831);
 
-$bibliotheque->ajouterLivre($livre1);
-$bibliotheque->ajouterLivre($livre2);
+$router = new Router();
+$router->start();
 
-$emprunteur = new Emprunteur("Jean", "Lescroc");
-
-$bibliotheque->ajouterEmprunteur($emprunteur);
-
-if ($emprunteur->emprunterLivre($livre1)) {
-    echo "Livre emprunté : " . $livre1->getTitre() . "<br>";
-} else {
-    echo "Le livre n'est pas disponible.";
-}
-
-foreach ($bibliotheque->listerLivres() as $livre) {
-    echo $livre->afficherInfos();
-}
+?>

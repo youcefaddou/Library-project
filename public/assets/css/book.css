@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+
+    background-color: #f5f5f5;
+}
+
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.title-booklist {
+    text-align: center;
+    padding: 10px;;
+}
+.LogoutButton {
+    padding: 10px 10px;
+    background-color: #f87171;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.LogoutButton:hover {
+    background-color: #ef4444;
+}
+
+.site-title {
+
+    text-align: center;
+    color: #333;
+    width: 100%;
+
+}
+
+.main-container {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+
+.post-create-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-title-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.post-content-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.post-submit-btn {
+    padding: 12px;
+    background-color: #2bc451;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.post-submit-btn:hover {
+    background-color: #22c55e;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.post-author {
+    color: #666;
+}
+
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.post-edit-btn, .post-delete-btn, .post-confirm-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post-edit-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.post-edit-btn:hover {
+    background-color: #2563eb;
+}
+
+.post-delete-btn {
+    background-color: #f87171;
+    color: white;
+}
+
+.post-delete-btn:hover {
+    background-color: #ef4444;
+}
+
+.post-confirm-btn {
+    background-color: #2bc451;
+    color: white;
+}
+
+.post-confirm-btn:hover {
+    background-color: #22c55e;
+}
+
+.no-posts {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.books-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.books-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.add-book-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add-book-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.add-book-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    flex: 1;
+}
+
+.book-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    word-break: break-word;
+}
+
+.author {
+    color: #666;
+    margin: 0 0 10px 0;
+    word-break: break-word;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.status.available {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status.unavailable {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.book-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-actions form {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.borrow-btn, .return-btn, .edit-btn, .delete-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 100px;
+}
+
+.borrow-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.return-btn {
+    background-color: #FF9800;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #9C27B0;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.no-books {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit-form input {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.year {
+    color: #3f3f3f;
+    margin: 0 0 15px 0;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .books-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-book-form {
+        flex-direction: column;
+    }
+
+    .add-book-form input {
+        width: 100%;
+    }
+
+    .book-actions form {
+        flex-direction: column;
+    }
+
+    .borrow-btn, .return-btn, .edit-btn, .delete-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .book-card {
+        padding: 10px;
+    }
+
+    .book-info h3 {
+        font-size: 1.1em;
+    }
+
+    .author {
+        font-size: 0.9em;
+    }
+
+    .status {
+        font-size: 0.8em;
+    }
+}
