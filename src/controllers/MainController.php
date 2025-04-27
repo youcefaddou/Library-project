@@ -14,7 +14,7 @@ class MainController extends Controller {
             $books = BookRepository::getAllBooks();
             include __DIR__ . '/../../views/main.php';
         } catch (Exception $e) {
-            $err = "Erreur lors de la récupération des données : " . $e->getMessage();
+            $_SESSION['error'] = "Erreur lors de la récupération des données.";
             include __DIR__ . '/../../views/main.php';
         }
     }

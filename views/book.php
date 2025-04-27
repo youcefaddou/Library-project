@@ -9,6 +9,13 @@
 <body>
     <div>
         <div class="books-container">
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="error-message">
+                    <?= htmlspecialchars($_SESSION['error']) ?>
+                    <?php unset($_SESSION['error']); ?>
+                </div>
+            <?php endif; ?>
+            
             <div class="books-header">
                 <h2>Bibliothèque</h2>
                 
@@ -27,11 +34,22 @@
                     <?php foreach ($books as $book): ?>
                         <div class="book-card">
                             <div class="book-info">
-                                <h3><?= htmlspecialchars($book['title']) ?></h3>
-                                <p class="author"><?= htmlspecialchars($book['author']) ?></p>
-                                <p class="status <?= $book['isAvailable'] ? 'available' : 'unavailable' ?>">
-                                    <?= $book['isAvailable'] ? 'Disponible' : 'Emprunté' ?>
-                                </p>
+                                <?php if (isset($_POST["book_edit_mode"]) && $_POST["book_edit_mode"] == $book['id']): ?>
+                                    <form action="/update" method="POST" class="edit-form">
+                                        <input type="hidden" name="book_id" value="<?= $book['id'] ?>">
+                                        <input type="text" name="title" value="<?= htmlspecialchars($book['title']) ?>">
+                                        <input type="text" name="author" value="<?= htmlspecialchars($book['author']) ?>">
+                                        <input type="number" name="year" value="<?= htmlspecialchars($book['year']) ?>" min="1600" max="2099">
+                                        <button type="submit" class="edit-btn">Confirmer</button>
+                                    </form>
+                                <?php else: ?>
+                                    <h3><?= htmlspecialchars($book['title']) ?></h3>
+                                    <p class="author"><?= htmlspecialchars($book['author']) ?></p>
+                                    <p class="year"><?= htmlspecialchars($book['year']) ?></p>
+                                    <p class="status <?= $book['isAvailable'] ? 'available' : 'unavailable' ?>">
+                                        <?= $book['isAvailable'] ? 'Disponible' : 'Emprunté' ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                             <div class="book-actions">
                                 <?php if ($book['isAvailable']): ?>
@@ -45,14 +63,14 @@
                                         <button type="submit" class="return-btn">Rendre</button>
                                     </form>
                                 <?php endif; ?>
-                                <form action="/update" method="POST" class="edit-form">
-                                    <input type="hidden" name="id" value="<?= $book['id'] ?>">
-                                    <input type="text" name="title" value="<?= htmlspecialchars($book['title']) ?>">
-                                    <input type="text" name="author" value="<?= htmlspecialchars($book['author']) ?>">
-                                    <button type="submit" class="edit-btn">Modifier</button>
-                                </form>
+                                <?php if (!(isset($_POST["book_edit_mode"]) && $_POST["book_edit_mode"] == $book['id'])): ?>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="book_edit_mode" value="<?= $book['id'] ?>">
+                                        <button type="submit" class="edit-btn">Modifier</button>
+                                    </form>
+                                <?php endif; ?>
                                 <form action="/delete" method="POST">
-                                    <input type="hidden" name="id" value="<?= $book['id'] ?>">
+                                    <input type="hidden" name="book_id" value="<?= $book['id'] ?>">
                                     <button type="submit" class="delete-btn">Supprimer</button>
                                 </form>
                             </div>

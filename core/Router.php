@@ -43,17 +43,17 @@ class Router
                 $controller->index();
                 exit;
             } 
-            // elseif ($uri === "/update") {
-            //     require_once '../src/controllers/UpdateController.php';
-            //     $controller = new UpdateController();
-            //     $controller->index();
-            //     exit;
-            // } elseif ($uri === "/delete") {
-            //     require_once '../src/controllers/DeleteController.php';
-            //     $controller = new DeleteController();
-            //     $controller->index();
-            //     exit;
-            // } 
+            elseif ($uri === "/update") {
+                require_once '../src/controllers/UpdateController.php';
+                $controller = new UpdateController();
+                $controller->index();
+                exit;
+            } elseif ($uri === "/delete") {
+                require_once '../src/controllers/DeleteController.php';
+                $controller = new DeleteController();
+                $controller->index();
+                exit;
+            } 
             elseif ($uri === "/book/borrow") {
                 require_once '../src/controllers/BookController.php';
                 $controller = new BookController();
@@ -70,7 +70,7 @@ class Router
                     $instance = new $controller();
                     $instance->index();
                 } else {
-                    include_once './views/error.php';
+                    include_once __DIR__ . '/../views/error.php';
                 }
             } else {
                 session_start();

@@ -333,6 +333,20 @@ body {
     border-radius: 10px;
 }
 
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.year {
+    color: #3f3f3f;
+    margin: 0 0 15px 0;
+    word-break: break-word;
+}
 
 @media (max-width: 768px) {
     .books-header {

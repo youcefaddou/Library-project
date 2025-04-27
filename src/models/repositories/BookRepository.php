@@ -32,12 +32,13 @@ abstract class BookRepository extends Db {
 
     public static function updateBook(Book $book) {
         $db = self::getInstance();
-        $query = "UPDATE books SET title = :title, author = :author, isAvailable = :isAvailable, borrower_id = :borrowerId WHERE id = :id";
+        $query = "UPDATE books SET title = :title, author = :author, year = :year, isAvailable = :isAvailable, borrower_id = :borrowerId WHERE id = :id";
         $statement = $db->prepare($query);
         return $statement->execute([
             ':id' => $book->getId(),
             ':title' => $book->getTitle(),
             ':author' => $book->getAuthor(),
+            ':year' => $book->getYear(),
             ':isAvailable' => $book->getIsAvailable(),
             ':borrowerId' => $book->getBorrowerId()
         ]);

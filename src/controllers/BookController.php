@@ -6,6 +6,7 @@ class BookController extends Controller {
     }
 
     public function borrow() {
+        session_start();
         if (!isset($_SESSION['user'])) {
             header("Location: /login");
             exit;
@@ -15,9 +16,12 @@ class BookController extends Controller {
             $bookId = $_POST['book_id'];
             $userId = $_SESSION['user']['id'];
             try {
-                BookRepository::borrowBook($bookId, $userId);
+                $book = BookRepository::getBookById($bookId);
+                if ($book && $book['isAvailable']) {
+                    BookRepository::borrowBook($bookId, $userId);
+                }
             } catch (Exception $e) {
-                $err = "Erreur lors de l'emprunt du livre : " . $e->getMessage();
+                $_SESSION['error'] = "Erreur lors de l'emprunt du livre.";
             }
         }
 
@@ -26,6 +30,7 @@ class BookController extends Controller {
     }
 
     public function return() {
+        session_start();
         if (!isset($_SESSION['user'])) {
             header("Location: /login");
             exit;
@@ -34,9 +39,12 @@ class BookController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bookId = $_POST['book_id'];
             try {
-                BookRepository::returnBook($bookId);
+                $book = BookRepository::getBookById($bookId);
+                if ($book && $book['borrower_id'] == $_SESSION['user']['id']) {
+                    BookRepository::returnBook($bookId);
+                }
             } catch (Exception $e) {
-                $err = "Erreur lors du retour du livre : " . $e->getMessage();
+                $_SESSION['error'] = "Erreur lors du retour du livre.";
             }
         }
 
@@ -62,7 +70,7 @@ class BookController extends Controller {
                 header('Location: /');
                 exit;
             } catch (Exception $e) {
-                $error = "Une erreur est survenue lors de l'ajout du livre.";
+                $_SESSION['error'] = "Une erreur est survenue lors de l'ajout du livre.";
             }
         }
     }
