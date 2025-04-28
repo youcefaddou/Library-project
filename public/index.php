@@ -21,11 +21,7 @@ require_once('../src/controllers/BookController.php');
 require_once('../src/controllers/AddController.php');
 require_once('../src/controllers/UpdateController.php');
 require_once('../src/controllers/DeleteController.php');
-<<<<<<< HEAD
-=======
 
-
->>>>>>> c09e0b240d9017f5e8c0c38b79e40d37a021e9da
 
 
 $router = new Router();
