@@ -4,10 +4,10 @@ require_once __DIR__ . '/../models/repositories/BookRepository.php';
 
 class UpdateController extends Controller {
     public function index() {
-        if (!isset($_SESSION['user'])) {
-            header("Location: /login");
-            exit;
-        }
+        // if (!isset($_SESSION['user'])) {
+        //     header("Location: /login");
+        //     exit;
+        // }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bookId = $_POST['book_id'];
@@ -44,6 +44,4 @@ class UpdateController extends Controller {
         exit;
     }
 }
-
-
 ?>
