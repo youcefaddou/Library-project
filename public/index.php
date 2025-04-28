@@ -19,10 +19,8 @@ require_once('../src/controllers/LogoutController.php');
 require_once('../src/controllers/PostController.php');
 require_once('../src/controllers/BookController.php');
 require_once('../src/controllers/AddController.php');
-// require_once('../src/controllers/UpdateController.php');
-// require_once('../src/controllers/DeleteController.php');
-
-
+require_once('../src/controllers/UpdateController.php');
+require_once('../src/controllers/DeleteController.php');
 
 
 $router = new Router();
