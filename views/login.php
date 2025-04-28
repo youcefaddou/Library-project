@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/login.css">
 </head>
 <body>
-<h1 class="site-title">Library App</h1>
+<h1 class="site-title">Library & Social App</h1>
 <div class="main-container">
     <h2 class="form-title">Connexion</h2>
     <a href="/"><button type="submit" name="back" class="back-btn">Retour au formulaire</button></a>

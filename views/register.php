@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Library App</h1>
+    <h1>Library & Social App</h1>
     <nav>
 
         <div class="connect-btn-container">
